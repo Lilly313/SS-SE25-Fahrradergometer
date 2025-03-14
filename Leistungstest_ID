@@ -1,0 +1,24 @@
+# empty dictionary for experiments
+experiments : dict = {}
+
+try:
+    for first_experiment_id in range(10):
+        experiments[first_experiment_id] : dict = {
+            "Investigator": "Ida Dürr-Pucher",
+            "Date": "13.03.2025"
+        }
+
+    print(experiments)
+    # Loop to output the first 5
+    for i in range(5):
+        print(i, experiments[i])
+
+    # How many experiments are there with an even ID
+    counter = 0
+    for j in experiments:
+        if j % 2 == 0:
+            counter += 1
+    print("How many experiments are there with an even ID:", counter)
+            #print(j, experiments[j])
+except TypeError as e:
+    print("Error: {e}")
