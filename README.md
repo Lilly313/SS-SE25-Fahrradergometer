@@ -5,7 +5,7 @@ Sommersemester 2025 Software Engineering
 UC 1.03 (Alarm bei zu hoher Herzfrequenz)
 
 ## Beschreibung
-Bevor das Fahrradergometer gestartet wird, stellt der Diagnostiker:in die angepasste maximal Herzfrequenz der Proband:in ein. Sobald die Herzfrequenz während des Tests einen maximal Punkt überschreitet, wird ein Alarm ausgelöst, der dem Probanden anweist aufzuhören. Der Alarm kommt als Pop-Up Fenster auf einem Display und kann nur durch den Diagnostiker entfernt werden.
+Bevor das Fahrradergometer startet, stellt der Diagnostiker die maximale Herzfrequenz ein. Überschreitet der Proband diesen Wert, löst ein Pop-up-Alarm auf dem Display aus und fordert zum Stoppen auf. Nur der Diagnostiker kann den Alarm deaktivieren.
 
 ## Beteiligte Akteure
 Diagnostiker:in, Proband:in
