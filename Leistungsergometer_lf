@@ -1,0 +1,23 @@
+first_experiment_ID = 0
+performance_tests:dict[int, dict] = {}                                #dictonary anlegen
+
+try:
+   for first_experiment_ID in range(10):                              #zählt indices hoch
+             performance_tests[first_experiment_ID] = {               #gibt performance_tests von 0-10 aus
+                                "project_leader" : "Lilly",
+                                "test_date" : "13.03.2025"
+                          }
+except ValueError:
+    print("Only integers, no strings and floats")
+
+performance_tests_first_five = {}
+for i in range(5):                                                    #gibt nur die ersten fünf tests unter neuer Variable aus
+    performance_tests_first_five[i] = performance_tests[i]
+print(performance_tests_first_five)
+
+counter = 0
+for j in range(len(performance_tests)):                               #geht durch das dictonary durch und sucht die geraden IDs aus
+  if j % 2 == 0:
+    counter +=1
+print(f"Anzahl gerader test IDs: {counter}")
+
