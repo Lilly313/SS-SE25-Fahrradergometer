@@ -28,4 +28,4 @@ class Experiment():
         self.supervisor = supervisor
 
     def __str__(self):
-        return f"Experiment Name: {self.name}\nDate: {self.date}\nSubject: {self.subject.first_name} {self.subject.last_name}\nSupervisor: {self.supervisor.first_name} {self.supervisor.last_name}"
+        return f"Experiment Name: {self.experiment_name}\nDate: {self.date}\nSubject: {self.subject.first_name} {self.subject.last_name}\nSupervisor: {self.supervisor.first_name} {self.supervisor.last_name}"

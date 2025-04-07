@@ -1,4 +1,4 @@
-from my_functions import build_person, build_experiment
+from my_functions_Lilly import build_person, build_experiment
 
 if __name__ == "__main__":
     first_name = "Lilly"
