@@ -1,2 +1,4 @@
 pdm.lock
 .pdm-python
+.venv
+__pycache__/
