@@ -9,10 +9,8 @@ class Person:
 class Subject(Person):
     def __init__(self, first_name, last_name, sex, dateofbirth):
         super().__init__(first_name, last_name)
-        if not isinstance(dateofbirth, datetime):
-            raise ValueError("dateofbirth must be a datetime object")
         self.sex = sex
-        self.__dateofbirth = dateofbirth
+        self.__dateofbirth = datetime.strptime(dateofbirth, "%d/%m/%Y")
     
     def calculate_max_hr(self):
         return estimate_max_hr(self.get_age(), self.sex)
@@ -29,7 +27,12 @@ class Supervisor(Person):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
     
-# Beispiel für die Verwendung
-subject = Subject("Ida", "Dürr-Pucher", "female", datetime.strptime("01/04/2004", "%d/%m/%Y"))
-print(subject.get_age())
-print(subject.calculate_max_hr())
+class Experiment():
+    def __init__(self, experiment_name, date, supervisor, subject):
+        self.experiment_name = experiment_name
+        self.date = date
+        self.supervisor = supervisor
+        self.subject = subject
+
+    def __str__(self):
+        return f"{self.experiment_name} on {self.date} supervised by {self.supervisor} with subject {self.subject.first_name} {self.subject.last_name}"
