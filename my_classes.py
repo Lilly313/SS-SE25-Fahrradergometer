@@ -15,7 +15,7 @@ class Subject(Person):
         self.__dateofbirth = dateofbirth
     
     def calculate_max_hr(self):
-        return estimate_max_hr(self.sex, self.get_age())
+        return estimate_max_hr(self.get_age(), self.sex)
         
     def get_age(self):
         today = datetime.today()
