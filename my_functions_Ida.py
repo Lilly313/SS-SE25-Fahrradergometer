@@ -1,15 +1,18 @@
-def estimate_max_hr(age_years : int , sex : str) -> int:
-  """
-  See https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4124545/ for different formulas
-  """
-  if sex == "male":
-    max_hr_bpm =  223 - 0.9 * age_years
-  elif sex == "female":
-    max_hr_bpm = 226 - 1.0 *  age_years
-  else:
-    # der input() öffnet ein Eingabefenster für den Nutzer und speichert die Eingabe
-    max_hr_bpm  = input("Enter maximum heart rate:")
-  return int(max_hr_bpm)
+def estimate_max_hr(age_years: int, sex: str) -> int:
+    """
+    Berechnet die maximale Herzfrequenz basierend auf Alter und Geschlecht.
+    Siehe: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4124545/
+    """
+    sex = sex.lower()  # Falls das Geschlecht in Großbuchstaben übergeben wird
+
+    if sex == "male":
+        max_hr_bpm = 223 - 0.9 * age_years
+    elif sex == "female":
+        max_hr_bpm = 226 - 1.0 * age_years
+    else:
+        raise ValueError("Ungültiges Geschlecht. Bitte 'male' oder 'female' angeben.")
+
+    return int(max_hr_bpm)
 
 def build_person(first_name, last_name, sex, age) -> dict:
     """Returns a dictionary of information about a supervisor or subject."""

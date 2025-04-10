@@ -1,18 +1,35 @@
 from my_functions_Ida import estimate_max_hr
+from datetime import datetime
 
-class Subject():
-    def __init__(self, subject : dict):
-        self.subject = subject    
-        self.max_hr = estimate_max_hr(subject["age"], subject["sex"])
-        print(self.max_hr)
-class Supervisor():
-    def __init__(self, supervisor : dict):
-        self.supervisor = supervisor
-    pass
+class Person:
+    def __init__(self, first_name, last_name):
+        self.first_name = first_name
+        self.last_name = last_name
 
-class Experiment():
-    def __init__(self, experiment : dict):
-        self.experiment = experiment
-    pass
+class Subject(Person):
+    def __init__(self, first_name, last_name, sex, dateofbirth):
+        super().__init__(first_name, last_name)
+        if not isinstance(dateofbirth, datetime):
+            raise ValueError("dateofbirth must be a datetime object")
+        self.sex = sex
+        self.__dateofbirth = dateofbirth
+    
+    def calculate_max_hr(self):
+        return estimate_max_hr(self.sex, self.get_age())
+        
+    def get_age(self):
+        today = datetime.today()
+        age = today.year - self.__dateofbirth.year - ((today.month, today.day) < (self.__dateofbirth.month, self.__dateofbirth.day))
+        return age
 
-Subject({"id" : 1, "FirstName" : "Ida", "LastName" : "Dürr-Pucher", "sex" : "female", "age" : 21,})
+class Supervisor(Person):
+    def __init__(self, first_name, last_name):
+        super().__init__(first_name, last_name)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+    
+# Beispiel für die Verwendung
+subject = Subject("Ida", "Dürr-Pucher", "female", datetime.strptime("01/04/2004", "%d/%m/%Y"))
+print(subject.get_age())
+print(subject.calculate_max_hr())
