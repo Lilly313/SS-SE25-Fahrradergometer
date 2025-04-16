@@ -1,4 +1,4 @@
-from my_classes import Subject, Supervisor, Experiment
+from my_classes import Subject, Supervisor, Experiment, Person
 from datetime import datetime
 
 if __name__ == "__main__":
@@ -15,6 +15,3 @@ if __name__ == "__main__":
     experiment = Experiment("assignment62_max_heartrate", "2025-04-09")
     experiment.add_subject(subject)
     experiment.add_supervisor(supervisor)
-
-
-    print(experiment)
